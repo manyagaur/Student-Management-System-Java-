@@ -48,46 +48,46 @@
                     <div class="card">
                         <div class="card-header">Add New Students</div>
                         <div class="card-body">
-                            <form name="my-form" onsubmit="return validform()" action="success1.jsp" method="post">
+                            <form name="my-form" onsubmit="return validform()" action="adminHome.jsp" method="post">
                                 <div class="form-group row">
                                     <label for="full_name" class="col-md-4 col-form-label text-md-right">Course Name</label>
                                     <div class="col-md-6">
-                                        <input type="text"  class="form-control" name="">
+                                        <input type="text"  class="form-control" name="course">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">Branch Name</label>
                                     <div class="col-md-6">
-                                        <input type="text"  class="form-control" name="">
+                                        <input type="text"  class="form-control" name="branch">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="user_name" class="col-md-4 col-form-label text-md-right">Roll Number</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="">
+                                        <input type="text" class="form-control" name="rollNo">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="phone_number" class="col-md-4 col-form-label text-md-right">Name</label>
                                     <div class="col-md-6">
-                                        <input type="text"  class="form-control" name="">
+                                        <input type="text"  class="form-control" name="name">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="present_address" class="col-md-4 col-form-label text-md-right">Father Name</label>
                                     <div class="col-md-6">
-                                        <input type="text"  class="form-control" name="">
+                                        <input type="text"  class="form-control" name="fatherName">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label for="permanent_address" class="col-md-4 col-form-label text-md-right">Gender</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="">
+                                        <input type="text" class="form-control" name="gender">
                                     </div>
                                 </div>
 
