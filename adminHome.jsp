@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <title>MyCollegge</title>
-<body background="white">
+<body>
 <img src="logo.png"  align="left"width="100" height="100">
 <center><img src="MyCollege.png" width="100" height="100">
 
@@ -249,16 +249,35 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
+      <%@page import="studentManagementSystem.ConnectionProvider" %>
+	  <%@page import="java.sql.*" %>
+	  <%
+	  	try{
+	  		Connection con= ConnectionProvider.getCon();
+	  		Statement st=con.createStatement();
+	  		ResultSet rs=st.executeQuery("select * from student");
+	  		while (rs.next())
+	  				{
+		
+	  %>
+        
         <tr>
-          <td>B.Tech</td>
-          <td>CSE</td>
-          <td>10025</td>
-          <td>Gaurav kumar</td>
-          <td>Sunil Kumar</td>
-          <td>Male</td>
+        <td><%= rs.getString(1) %></td>
+        <td><%= rs.getString(2)  %></td>
+        <td><%= rs.getString(3)  %></td>
+        <td><%= rs.getString(4)  %></td>
+        <td><%= rs.getString(5)  %></td>
+        <td><%= rs.getString(6)  %></td>
         </tr>
-
+		<%}}
+	  catch(Exception e){
+		  System.out.println(e);
+	  }
+	  %>
       </tbody>
+      <%
+      
+      %>
     </table>
   </div>
 </section>
