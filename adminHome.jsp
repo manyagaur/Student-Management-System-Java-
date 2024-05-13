@@ -275,9 +275,7 @@
 	  }
 	  %>
       </tbody>
-      <%
-      
-      %>
+     
     </table>
   </div>
 </section>
@@ -305,16 +303,34 @@
   <div class="tbl-content">
     <table cellpadding="0" cellspacing="0" border="0">
       <tbody>
+      <%@page import="studentManagementSystem.ConnectionProvider" %>
+	  <%@page import="java.sql.*" %>
+	  <%
+	  	try{
+	  		Connection con= ConnectionProvider.getCon();
+	  		Statement st=con.createStatement();
+	  		ResultSet rs=st.executeQuery("select * from result");
+	  		while (rs.next())
+	  				{
+		
+	  %>
+        
         <tr>
-          <td>10025</td>
-          <td>70</td>
-          <td>80</td>
-          <td>90</td>
-          <td>50</td>
-          <td>56</td>
-          <td>25</td>
-          <td>25</td>
+        <td><%= rs.getString(1) %></td>
+        <td><%= rs.getString(2)  %></td>
+        <td><%= rs.getString(3)  %></td>
+        <td><%= rs.getString(4)  %></td>
+        <td><%= rs.getString(5)  %></td>
+        <td><%= rs.getString(6)  %></td>
+        <td><%= rs.getString(7)  %></td>
+        <td><%= rs.getString(8)  %></td>
         </tr>
+		<%}}
+	  catch(Exception e){
+		  System.out.println(e);
+	  }
+	  %>
+       
       </tbody>
     </table>
   </div>
