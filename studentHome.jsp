@@ -1,5 +1,23 @@
+<%@page import="studentManagementSystem.ConnectionProvider" %>
+<%@page import="java.sql.*" %>
+<%
+try{
+String rollNo=request.getParameter("rollNo");
+Connection con= ConnectionProvider.getCon();
+	Statement st=con.createStatement();
+	ResultSet rs=st.executeQuery("select * from student inner join result where student.rollNo=result.rollNo and student.rollNo='"+rollNo+"'");
+	if (rs.next()){
+		
+	%>
+	
+
+
+
+	
+
+
 <img src="logo.png"  align="left"width="150" height="150">
-<center><img src="dgi.png" width="150" height="150">
+<center><img src="MyCollege.png" width="150" height="150">
 <img src="apj sir.png" align="right"  width="150" height="150"></center>
     <a href="dgiOneView.html">Back</a>
   <hr class="new1">
@@ -34,17 +52,17 @@ body{
     <table cellpadding="0" cellspacing="0" border="0">
       <thead>
         <tr>
-          <th>institution Name: DGI</th>
-          <th>Course Name: B.Tech</th>
-          <th>Branch Name: Computer Science</th>
-          <th><center>RollNo: 10025</center></th>
+          <th>Institution Name: My Collegge</th>
+          <th>Course Name: <%=rs.getString(1) %></th>
+          <th>Branch Name: <%=rs.getString(2) %></th>
+          <th><center>RollNo: <%=rs.getString(3) %></center></th>
         </tr>
       </thead>
       <thead>
         <tr>
-          <th>Name: Gaurav kumar</th>
-          <th>Father Name: Sunil kumar</th>
-          <th>Gender: Male</th>
+          <th>Name: <%=rs.getString(4) %></th>
+          <th>Father Name: <%=rs.getString(5) %></th>
+          <th>Gender: <%=rs.getString(6) %></th>
           <th><a titlt="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;"><center><img src="print.png"></center></a></th>
         </tr>
       </thead>
@@ -110,7 +128,7 @@ tbody >tr:nth-child(odd) {
         <td>Theory</td>
         <td>100</td>
         <td> 30 </td>
-        <td>80</td>
+        <td><%=rs.getString(8) %></td>
       </tr>
       <tr>
         <td>NAS102</td>
@@ -118,7 +136,7 @@ tbody >tr:nth-child(odd) {
         <td>Theory</td>
         <td>100</td>
         <td>30</td>
-        <td>98 </td>
+        <td><%=rs.getString(9) %> </td>
       </tr>
       <tr>
         <td>NAS103</td>
@@ -126,7 +144,7 @@ tbody >tr:nth-child(odd) {
         <td>Theory</td>
         <td>100</td>
         <td> 30 </td>
-        <td> 75</td>
+        <td> <%=rs.getString(10) %></td>
       </tr>
       <tr>
         <td>NEE101</td>
@@ -134,7 +152,7 @@ tbody >tr:nth-child(odd) {
         <td>Theory</td>
         <td>100</td>
         <td> 30 </td>
-        <td> 85</td>
+        <td> <%=rs.getString(11) %></td>
       </tr>
       <tr>
         <td>NEC101</td>
@@ -142,7 +160,7 @@ tbody >tr:nth-child(odd) {
         <td>Theory</td>
         <td>100</td>
         <td> 30 </td>
-        <td> 99 </td>
+        <td> <%=rs.getString(12) %></td>
       </tr>
       <tr>
         <td>NAS152</td>
@@ -150,7 +168,7 @@ tbody >tr:nth-child(odd) {
         <td>Practical</td>
         <td>30</td>
         <td>15</td>
-        <td> 20 </td>
+        <td> <%=rs.getString(13) %> </td>
       </tr>
       <tr>
         <td>NAS151</td>
@@ -158,7 +176,7 @@ tbody >tr:nth-child(odd) {
         <td>Practical</td>
         <td>30</td>
         <td>15</td>
-        <td> 21 </td>
+        <td> <%=rs.getString(14) %> </td>
       </tr>
     </tbody>
     <tfoot>
@@ -166,12 +184,16 @@ tbody >tr:nth-child(odd) {
         <td colspan="4" class="footer">Total Marks</td>
         <td>560</td>
         <td>180</td>
-        <td>450 </td>
+        <td><%int sum=rs.getInt(8)+rs.getInt(9)+rs.getInt(10)+rs.getInt(11)+rs.getInt(12)+rs.getInt(13)+rs.getInt(14)+rs.getInt(14); System.out.println(sum); %> </td>
       </tr>
       <tr>
         <td colspan="4" class="footer">Percentage</td>
-        <td colspan="3">80%</td>
+        <td colspan="3"><%=(sum*100)/560 %></td>
       </tr>
+      <% }}catch(Exception e){
+    		System.out.println(e);
+      } %>
+      
   </table>
     <hr class="new1">
   <center><h6>Note: Institution doesn't own for the errors or omissions, if any, in this statement.
